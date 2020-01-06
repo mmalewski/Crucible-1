@@ -211,13 +211,10 @@ namespace Crucible
             }
 
             ReadPerforceInformation();
-
-            //Unneed perforce information check for a supported changelist, going to remove ~ Invader
-/*
             if (Perforce != null)
             {
                 const Int64 minSupportedChangelist = 0;
-                const Int64 maxSupportedChangelist = 3917223;
+                const Int64 maxSupportedChangelist = 1209915;
 
                 bool isVersionUnsupported = false;
                 isVersionUnsupported |= Perforce.RequestedP4ChangeNum < minSupportedChangelist;
@@ -230,7 +227,7 @@ namespace Crucible
                     return;
                 }
             }
-*/
+
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(delegate ()
             {
                 this.P4KFilesystemTab.Content = new FilesystemView(FilesystemManager.P4KFilesystem);
