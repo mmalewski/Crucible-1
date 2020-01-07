@@ -80,6 +80,7 @@ namespace Crucible.Filesystem
                 switch (FilesystemEntry.Type)
                 {
                     case Crucible.FileType.DataCoreBinary: return "DataCore Binary";
+                    case Crucible.FileType.ObjectContainer: return "Object Container";
                     case Crucible.FileType.Text: return "Text Document";
                     case Crucible.FileType.Configuration: return "Configuration File";
                     case Crucible.FileType.XML: return "Configuration File";
@@ -93,6 +94,7 @@ namespace Crucible.Filesystem
                     case Crucible.FileType.CrytekGeometryAnimation: return "Crytek Geometry Animation File";
                     case Crucible.FileType.P4K: return "StarCitizen Package";
                     case Crucible.FileType.PAK: return "Package";
+                    case Crucible.FileType.SOCPAK: return "Object Container Package";
                 }
 
                 return FilesystemEntry.Type.ToString();
