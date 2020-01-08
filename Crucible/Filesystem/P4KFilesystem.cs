@@ -103,6 +103,7 @@ namespace Crucible.Filesystem
             // sort the file structure
             foreach (var folder in folders)
             {
+                
                 //TODO: Implement sorting feature
                 //folder.Value.Sort();
             }

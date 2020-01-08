@@ -101,14 +101,20 @@
             <ListView.View>
                 <sd:SharpGridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Name" Width="Auto">
+                        <GridViewColumn Width="Auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="FileName" Click="TreeviewColName_Click">Name</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <sd:SharpTreeNodeView />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Date modified">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="FileModified" Click="TreeviewColName_Click">Date modified</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding FileModified, Converter={StaticResource UtcToLocalDateTimeConverter}}">
@@ -121,14 +127,20 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Type">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="FileType" Click="TreeviewColName_Click">Type</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding FileType}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Size" Width="60">
+                        <GridViewColumn Width="60">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="FileSize" Click="TreeviewColName_Click">Size</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock TextAlignment="Right" Text="{Binding FileSizeStr}">
