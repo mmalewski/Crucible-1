@@ -73,14 +73,9 @@ namespace Crucible.Filesystem
 
             IEnumerable<IFilesystemEntry> originalItemsOrder = Items.ToArray();
             IEnumerable<IFilesystemEntry> newItemsOrder = originalItemsOrder.ToArray();
-            if (IsDirectory)
-            {
-                newItemsOrder = newItemsOrder.OrderBy(c => c.Name);
-            }
-            else
-            {
-                newItemsOrder = newItemsOrder.OrderBy(c => c.LastModifiedDate);
-            }
+
+            newItemsOrder = newItemsOrder.OrderBy(c => c.Name);
+
             newItemsOrder = newItemsOrder.OrderBy(c => !c.IsDirectory);
 
             bool isOutOfOrder = false;
