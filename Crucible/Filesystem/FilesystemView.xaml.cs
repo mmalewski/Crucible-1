@@ -1,13 +1,16 @@
-﻿using Microsoft.Win32;
+﻿using ICSharpCode.TreeView;
+using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -319,6 +322,31 @@ namespace Crucible.Filesystem
 
         ListSortDirection newDir;
 
+        //Recursive node calls
+
+        private void PrintRecursive(SharpDevelopFilesystemNode treeNode)
+        {
+            // Print the node.  
+            System.Diagnostics.Debug.WriteLine(treeNode.Text);
+            //MessageBox.Show(treeNode.Text);
+            // Print each node recursively.  
+            foreach (SharpDevelopFilesystemNode tn in treeNode.Nodes)
+            {
+                PrintRecursive(tn);
+            }
+        }
+
+        // Call the procedure using the TreeView.  
+        private void CallRecursive(SharpTreeView treeView)
+        {
+            // Print each node recursively.  
+            SharpTreeNodeCollection nodes = treeView.Root.Children;
+            foreach (SharpDevelopFilesystemNode n in nodes)
+            {
+                PrintRecursive(n);
+            }
+        }
+
         //TreeView2 sort on click
 
         private void TreeviewColName_Click(object sender, RoutedEventArgs e)
@@ -338,11 +366,7 @@ namespace Crucible.Filesystem
 
             listViewSortCol = column;
             listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
-            for (var i = 0; i < treeView2.Items.Count; i++) 
-            {
 
-
-            }
             AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
             treeView2.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
