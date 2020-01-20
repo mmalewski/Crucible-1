@@ -46,8 +46,6 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel>
-                </StackPanel>
             </StackPanel>
         </Grid>
     </Border>
