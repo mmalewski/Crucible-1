@@ -10,7 +10,6 @@ namespace Crucible
     {
         Generic,
         DataCoreBinary,
-        ObjectContainer,
         Text,
         Configuration,
         XML,
@@ -28,8 +27,7 @@ namespace Crucible
         CrytekGeometryAnimation,
         // Package Types
         P4K,
-        PAK,
-        SOCPAK
+        PAK
     }
 
     public static class Fileconverter
@@ -60,7 +58,6 @@ namespace Crucible
             switch (extension)
             {
                 case ".dcb": return FileType.DataCoreBinary;
-                case ".soc": return FileType.ObjectContainer;
                 case ".txt": return FileType.Text;
                 case ".cfg": return FileType.Configuration;
                 case ".mtl":
@@ -75,7 +72,7 @@ namespace Crucible
                 case ".wem": return FileType.WEM;
                 case ".p4k": return FileType.P4K;
                 case ".pak": return FileType.PAK;
-                case ".socpak": return FileType.SOCPAK;
+
             }
             return FileType.Generic;
         }
